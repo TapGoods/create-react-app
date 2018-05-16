@@ -20,12 +20,12 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const envPublicUrl = process.env.PUBLIC_URL;
 
 let aliases = {
-                'babel-runtime': path.dirname(require.resolve('babel-runtime/package.json')),
-                "react-native": "react-native-web"
-              };
-console.log("I am HERE")
+  "babel-runtime": path.dirname(require.resolve("babel-runtime/package.json")),
+  "react-native": "react-native-web"
+};
+console.log("I am HERE");
 if (fs.existsSync(resolveApp("config_overrides/absolutePaths.js"))) {
-  console.log("I am now there")
+  console.log("I am now there");
   const customAbsolutePaths = require(resolveApp(
     "config_overrides/absolutePaths.js"
   ));
@@ -81,7 +81,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  aliases: aliases
+  appAliases: aliases
 };
 
 // @remove-on-eject-begin
@@ -105,6 +105,7 @@ module.exports = {
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
+  appAliases: aliases
 };
 
 const ownPackageJson = require('../package.json');
@@ -135,6 +136,7 @@ if (
     // These properties only exist before ejecting:
     ownPath: resolveOwn('.'),
     ownNodeModules: resolveOwn('node_modules'),
+    appAliases: aliases
   };
 }
 // @remove-on-eject-end

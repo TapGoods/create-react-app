@@ -19,7 +19,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-console.log(paths.aliases)
+console.log(paths.appAliases)
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -92,7 +92,7 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
-    alias: paths.aliases,
+    alias: paths.appAliases,
     // alias: {
     //   // @remove-on-eject-begin
     //   // Resolve Babel runtime relative to react-scripts.
