@@ -225,13 +225,10 @@ module.exports = {
                 options: {
                   sourceMap: true,
                   includePaths: [
+                    path.resolve(path.appNodeModules, "./compass-mixins/lib"),
                     path.resolve(
-                      __dirname,
-                      "../node_modules/compass-mixins/lib"
-                    ),
-                    path.resolve(
-                      __dirname,
-                      "../node_modules/breakpoint-sass/stylesheets/"
+                      path.appNodeModules,
+                      "./breakpoint-sass/stylesheets/"
                     )
                   ]
                 }
