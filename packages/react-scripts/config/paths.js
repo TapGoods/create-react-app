@@ -23,9 +23,7 @@ let aliases = {
   "babel-runtime": path.dirname(require.resolve("babel-runtime/package.json")),
   "react-native": "react-native-web"
 };
-console.log("I am HERE");
 if (fs.existsSync(resolveApp("config_overrides/absolutePaths.js"))) {
-  console.log("I am now there");
   const customAbsolutePaths = require(resolveApp(
     "config_overrides/absolutePaths.js"
   ));
@@ -38,7 +36,6 @@ if (fs.existsSync(resolveApp("config_overrides/absolutePaths.js"))) {
 
   aliases = extend({ "react-native": "react-native-web" }, customAbsolutePaths);
 }
-console.log("I am past")
 
 function ensureSlash(path, needsSlash) {
   const hasSlash = path.endsWith('/');
