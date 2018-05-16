@@ -19,6 +19,24 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
+let aliases = {
+                'babel-runtime': path.dirname(require.resolve('babel-runtime/package.json')),
+                "react-native": "react-native-web"
+              };
+if (fs.existsSync(resolveApp("config_overrides/absolutePaths.js"))) {
+  const customAbsolutePaths = require(resolveApp(
+    "config_overrides/absolutePaths.js"
+  ));
+  function extend(obj, src) {
+    for (var key in src) {
+      if (src.hasOwnProperty(key)) obj[key] = resolveApp(src[key]);
+    }
+    return obj;
+  }
+
+  aliases = extend({ "react-native": "react-native-web" }, customAbsolutePaths);
+}
+
 function ensureSlash(path, needsSlash) {
   const hasSlash = path.endsWith('/');
   if (hasSlash && !needsSlash) {
@@ -60,6 +78,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  aliases: aliases
 };
 
 // @remove-on-eject-begin
