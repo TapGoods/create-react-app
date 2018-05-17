@@ -1,14 +1,14 @@
 {
   "name": "tapgoods-react-scripts",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "TapGoods Custom React Scripts Configuration",
-  "repository": "https://github.com/jgoodall628/create-react-app",
+  "repository": "https://github.com/TapGoods/create-react-app",
   "license": "MIT",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/jgoodall628/create-react-app"
+    "url": "https://github.com/TapGoods/create-react-app"
   },
   "files": [
     "bin",

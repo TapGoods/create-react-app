@@ -135,6 +135,9 @@ module.exports = {
               // @remove-on-eject-begin
               baseConfig: {
                 extends: [require.resolve('eslint-config-react-app')],
+                rules: {
+                  "react/style-prop-object": "off"
+                }
               },
               ignore: false,
               useEslintrc: false,
