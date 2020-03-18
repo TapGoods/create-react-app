@@ -17,6 +17,7 @@ const getPublicUrlOrPath = require('react-dev-utils/getPublicUrlOrPath');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
+let aliases = {}
 if (fs.existsSync(resolveApp("config_overrides/absolutePaths.js"))) {
   const customAbsolutePaths = require(resolveApp(
     "config_overrides/absolutePaths.js"
