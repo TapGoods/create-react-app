@@ -29,7 +29,7 @@ if (fs.existsSync(resolveApp("config_overrides/absolutePaths.js"))) {
     return obj;
   }
 
-  aliases = customAbsolutePaths;
+  aliases = extend({}, customAbsolutePaths);
 }
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
