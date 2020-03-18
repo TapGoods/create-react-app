@@ -37,6 +37,7 @@ module.exports = {
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map',
+  mode: 'development',
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
@@ -136,8 +137,8 @@ module.exports = {
               baseConfig: {
                 extends: [require.resolve('eslint-config-react-app')],
                 rules: {
-                  "react/style-prop-object": "off"
-                }
+                  'react/style-prop-object': 'off',
+                },
               },
               ignore: false,
               useEslintrc: false,
@@ -220,23 +221,23 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
-              { loader: "style-loader" }, // creates style nodes from JS strings
-              { loader: "css-loader" }, // translates CSS into CommonJS
-              { loader: "resolve-url-loader" },
+              { loader: 'style-loader' }, // creates style nodes from JS strings
+              { loader: 'css-loader' }, // translates CSS into CommonJS
+              { loader: 'resolve-url-loader' },
               {
-                loader: "sass-loader",
+                loader: 'sass-loader',
                 options: {
                   sourceMap: true,
                   includePaths: [
-                    path.resolve(paths.appNodeModules, "./compass-mixins/lib"),
+                    path.resolve(paths.appNodeModules, './compass-mixins/lib'),
                     path.resolve(
                       paths.appNodeModules,
-                      "./breakpoint-sass/stylesheets/"
-                    )
-                  ]
-                }
-              } // compiles Sass to CSS
-            ]
+                      './breakpoint-sass/stylesheets/'
+                    ),
+                  ],
+                },
+              }, // compiles Sass to CSS
+            ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -271,11 +272,8 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
-    // Add module names to factory functions so they appear in browser profiler.
-    new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
-    new webpack.DefinePlugin(env.stringified),
     // This is necessary to emit hot updates (currently CSS only):
     new webpack.HotModuleReplacementPlugin(),
     // Watcher doesn't work well if you mistype casing in a path so we use

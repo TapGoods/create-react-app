@@ -63,6 +63,7 @@ module.exports = {
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
+  mode: 'production',
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
   output: {
@@ -243,23 +244,23 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
-              { loader: "style-loader" }, // creates style nodes from JS strings
-              { loader: "css-loader" }, // translates CSS into CommonJS
-              { loader: "resolve-url-loader" },
+              { loader: 'style-loader' }, // creates style nodes from JS strings
+              { loader: 'css-loader' }, // translates CSS into CommonJS
+              { loader: 'resolve-url-loader' },
               {
-                loader: "sass-loader",
+                loader: 'sass-loader',
                 options: {
                   sourceMap: true,
                   includePaths: [
-                    path.resolve(paths.appNodeModules, "./compass-mixins/lib"),
+                    path.resolve(paths.appNodeModules, './compass-mixins/lib'),
                     path.resolve(
                       paths.appNodeModules,
-                      "./breakpoint-sass/stylesheets/"
-                    )
-                  ]
-                }
-              } // compiles Sass to CSS
-            ]
+                      './breakpoint-sass/stylesheets/'
+                    ),
+                  ],
+                },
+              }, // compiles Sass to CSS
+            ],
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
