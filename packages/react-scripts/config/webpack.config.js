@@ -506,6 +506,13 @@ module.exports = function(webpackEnv) {
             // extensions .module.scss or .module.sass
             {
               test: sassRegex,
+              include: [
+                path.resolve(paths.appNodeModules, './compass-mixins/lib'),
+                path.resolve(
+                  paths.appNodeModules,
+                  './breakpoint-sass/stylesheets/'
+                ),
+              ]
               exclude: sassModuleRegex,
               use: getStyleLoaders(
                 {
