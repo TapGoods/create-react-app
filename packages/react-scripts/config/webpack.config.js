@@ -512,7 +512,7 @@ module.exports = function(webpackEnv) {
                   paths.appNodeModules,
                   './breakpoint-sass/stylesheets/'
                 ),
-              ]
+              ],
               exclude: sassModuleRegex,
               use: getStyleLoaders(
                 {
